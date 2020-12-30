@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 공부하기 1일차</title>
+    <style>
+        body {padding: 30px;}
+        * {margin: 0; padding: 0;}
+
+        li {list-style: none}
+        ul#photo_list {border: 2px solid lime; display: inline-block; padding: 20px;}
+        ul#photo_list > li {border: 1px solid orange; float: left; padding: 20px; position: relative;}
+        ul#photo_list > li > a {border: 1px solid black; padding: 10px;}
+        ul#photo_list ul {
+            display: none;
+            background-color: yellow;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100px;
+            padding: 10px;
+            z-index: 100;
+            border: 1px solid lime;
+            transition: all 1s ease;
+            opacity: 0;
+        }
+    
+        /* ul#photo_list ul.opened {
+            display: block
+        } */
+    
+        ul#photo_list > li.on > ul {
+            display: block; 
+            opacity: 1; 
+        }
+        ul#photo_list ul > li {border: 1px solid orange; padding: 5px;}
+        ul#photo_list ul > li > a {text-decoration: none; border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <ul id="photo_list">
+        <li>
+            <a href="">건물</a>
+            <ul>
+                <li><a href="">남산타워</a></li>
+                <li><a href="">63빌딩</a></li>
+                <li><a href="">63빌딩</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">커피</a>
+            <ul>
+                <li><a href="">아메리카노</a></li>
+                <li><a href="">카페라테</a></li>
+                <li><a href="">카페라테</a></li>
+                <li><a href="">카페라테</a></li>
+                <li><a href="">카페라테</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">불꽃놀이</a>
+            <ul>
+                <li><a href="">한강축제</a></li>
+                <li><a href="">금강축제</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">장미</a>
+        </li>
+    </ul>
+
+    <script>
+        let menu = document.querySelectorAll('#photo_list > li > a');
+        
+        for (let i = 0; i < menu.length; i++) {
+            menu[i].addEventListener('click', function (e) {
+                if (e.target.parentNode.className === '') {
+                    for (let i = 0; i < menu.length; i++) {
+                        menu[i].parentNode.className = '';
+                    }
+                    e.target.parentNode.className = 'on';
+                } 
+                e.preventDefault();
+            });
+        };
+
+        // for (let i = 0; i < menu.length; i++) {
+        //     menu[i].onclick =  function (ev) {
+        //         if (ev.target.parentNode.className === 'on') {
+        //             ev.target.parentNode.className = '';
+        //         } else {
+        //             for (let i = 0; i < menu.length; i++) {
+        //                 menu[i].parentNode.className = '';
+        //             }
+        //             ev.target.parentNode.className = 'on';
+        //         };
+        //         return false;
+        //     };
+        // };
+    </script>
+</body>
+</html>
