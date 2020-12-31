@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 공부하기 2일차</title>
+</head>
+<body>
+    <h1>나의 사진첩</h1>
+    <ul id="photo_list">
+        <li><a href="../image/bigben.jpg" title="멋진 건물">건물</a></li> 
+        <li><a href="../image/coffee.jpg" title="향기로운 커피">커피</a></li>
+        <li><a href="../image/fireworks.jpg" title="화려한 불꽃놀이">불꽃놀이</a> </li> 
+        <li><a href="../image/rose.jpg" title="아름다운 장미">장미</a></li> 
+    </ul>
+    <img id="placeholder" src="http://placehold.it/300x200"/>
+    <p id="desc">사진설명</p>
+
+    <script>
+        // 부모태그한테 addEventListener 걸어주는 코드
+        const ulElem = document.querySelector('#photo_list');
+        const placeholder = document.querySelector('#placeholder');
+        const desc = document.querySelector('#desc');
+
+        ulElem.addEventListener('click', clickWork);
+        function clickWork(ev) {
+            if (ev.target.tagName !== 'A') {
+                return;
+            }
+            ev.preventDefault();
+            // placeholder.setAttribute('src', ev.target.href);
+            placeholder.src =  ev.target.href;
+            desc.childNodes[0].nodeValue = ev.target.title;
+        };
+
+
+
+
+
+        // 할당하기
+        // const aElem = document.querySelectorAll('#photo_list > li > a');
+        // const placeholder = document.querySelector('#placeholder');
+
+        // for (let i = 0; i < aElem.length; i++) {
+        //     aElem[i].addEventListener('click', function (e) {
+        //         console.log(e.target.href);
+        //         console.log(placeholder.src = e.target.href);
+        //         e.preventDefault();
+        //     });
+        // };
+
+
+
+
+
+        // a태그한테 addEventListener 다 걸어주는 코드
+        // const aElems = document.querySelectorAll('#photo_list > li > a');
+        // const placeholder = document.querySelector('#placeholder');
+
+        // // console.log(aElems, placeholder);
+
+        // for (let i = 0; i < aElems.length; i++) {
+        //     aElems[i].addEventListener('click', clickWork);
+        // };
+
+        // function clickWork(ev) {
+        //     ev.preventDefault();
+        //     placeholder.setAttribute('src', ev.target.href);
+        // };
+        
+    </script>
+</body>
+</html>
