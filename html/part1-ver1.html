@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part. 1: 응용 ver1</title>
+    <style>
+        * {padding: 0; margin: 0;}
+        li {list-style: none;}
+        a {text-decoration: none; color: #000000;}
+        
+        .header {height: 80px; background-color: #999999;}
+        .header .gnb {width: 800px; margin: 0 auto; text-align: center;}
+        .header .gnb .menu {display: inline-block;}
+        .header .gnb .menu::after {content: ''; display: block; clear: both;}
+        .header .gnb .menu .item {float: left; margin: 0 20px; position: relative;}
+        .header .gnb .menu .item .toggle-on {display: block;}
+        .header .gnb .menu .item a {font-size: 18px; display: block; padding: 0 20px; line-height: 80px; color: #ffffff;}
+        .header .gnb .sub-menu {opacity: 0; background-color: #777777; position: absolute; top: 80px; left: 0; z-index: 1;}
+        .header .gnb .on {opacity: 1; transition: all 0.5s ease;}
+        .header .gnb .on-a {opacity: 1; transition: all 0.5s ease;}
+        .header .gnb .sub-menu .sub-item a {color: #000000; line-height: 40px; display: block; margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="gnb">
+            <ul class="menu">
+                <li class="item">
+                    <a href="">메뉴01</a>
+                    <ul class="sub-menu">
+                        <li class="sub-item">
+                            <a href="https://www.youtube.com/watch?v=X0bf0hfE3qA">메뉴01</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="">메뉴02</a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="">메뉴02</a></li>
+                        <li class="sub-item"><a href="">메뉴02</a></li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="">메뉴03</a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="">메뉴03</a></li>
+                        <li class="sub-item"><a href="">메뉴03</a></li>
+                        <li class="sub-item"><a href="">메뉴03</a></li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="">메뉴04</a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="">메뉴04</a></li>
+                        <li class="sub-item"><a href="">메뉴04</a></li>
+                        <li class="sub-item"><a href="">메뉴04</a></li>
+                        <li class="sub-item"><a href="">메뉴04</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        // 작업 중
+        const item = document.querySelectorAll('.item');
+        const subMenu = document.querySelectorAll('.sub-menu');
+
+        for (let i = 0; i < item.length; i++) {
+            item[i].addEventListener('mouseover', function (e) {
+                e.preventDefault();
+                subMenu[i].classList.add('on');
+            });
+        };
+
+
+
+
+        // push() 가지고 addEventListener 제어하기
+        // const headerMenu = document.querySelector('.menu');
+        // const subMenu = document.querySelectorAll('.sub-menu');
+        // let li = [];
+
+        // headerMenu.addEventListener('click', function (e) {
+        //     e.preventDefault();
+        //     for (let i = 0; i < headerMenu.childNodes.length; i++) {
+        //         if (headerMenu.childNodes[i].nodeType === 1) {
+        //             console.log(headerMenu.childNodes[i]);
+        //             li.push(headerMenu.childNodes[i]);
+        //         };
+        //     };
+        // });
+    </script>
+</body>
+</html>
