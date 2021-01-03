@@ -9,17 +9,17 @@
         li {list-style: none;}
         a {text-decoration: none; color: #000000;}
         
-        .header {height: 80px; background-color: #999999;}
+        .header {height: 80px; background-color: #999999; margin-top: 100px;}
         .header .gnb {width: 800px; margin: 0 auto; text-align: center;}
-        .header .gnb .menu {display: inline-block;}
+        .header .gnb .menu {display: inline-block; vertical-align: top;}
         .header .gnb .menu::after {content: ''; display: block; clear: both;}
         .header .gnb .menu .item {float: left; margin: 0 20px; position: relative;}
-        .header .gnb .menu .item .toggle-on {display: block;}
         .header .gnb .menu .item a {font-size: 18px; display: block; padding: 0 20px; line-height: 80px; color: #ffffff;}
-        .header .gnb .sub-menu {opacity: 0; background-color: #777777; position: absolute; top: 80px; left: 0; z-index: 1;}
-        .header .gnb .on {opacity: 1; transition: all 0.5s ease;}
-        .header .gnb .on-a {opacity: 1; transition: all 0.5s ease;}
-        .header .gnb .sub-menu .sub-item a {color: #000000; line-height: 40px; display: block; margin-bottom: 20px;}
+        .header .gnb .sub-menu {position: absolute; top: 80px; left: 0; display: none; height: 0;}
+        .header .gnb .sub-menu .sub-item {background-color: #777777;}
+        .header .gnb .sub-menu .sub-item a {color: #ffffff; line-height: 40px; display: block; padding: 20px;}
+
+        .header .gnb .on {transition: all 0.5s ease; height: 100%; display: block;}
     </style>
 </head>
 <body>
@@ -71,6 +71,10 @@
             item[i].addEventListener('mouseover', function (e) {
                 e.preventDefault();
                 subMenu[i].classList.add('on');
+            });
+            item[i].addEventListener('mouseout', function (e) {
+                e.preventDefault();
+                subMenu[i].classList.remove('on');
             });
         };
 
