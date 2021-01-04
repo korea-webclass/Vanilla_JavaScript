@@ -5,32 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>바닐라 자바스크립트로 UI 구현</title>
     <style>
-        .wrap > div {margin-bottom: 24px;}
-        .wrap > div a {text-decoration: none; color: #000000; margin-bottom: 4px; display: block;}
-        .wrap > div a:hover {text-decoration: underline; color: #000000;}
+        * {padding: 0; margin: 0;}
+        .wrap {}
+        .js-wrap {width: 1320px; padding: 0 40px; margin: 0 auto;}
+        .wrap > .js-wrap > h1 {font-size: 40px; background-color: #000000; color: #ffffff; display: inline-block; vertical-align: top; padding: 10px 20px; border-radius: 37px; margin: 40px 0;}
+        .wrap > .js-wrap > div {margin-bottom: 24px;}
+        .wrap > .js-wrap > .item {font-weight: bold; font-size: 20px;}
+        .wrap > .js-wrap > div a {text-decoration: none; color: #000000; margin-bottom: 4px; display: block;}
+        .wrap > .js-wrap > div a:hover {text-decoration: underline; color: #000000;}
     </style>
 </head>
 <body>
     <div class="wrap">
-        <h1>바닐라 자바스크립트로 구현 및 공부하기</h1>
-        <div class="gnb-menu">
-            <a href="./html/01-gnb-menu01.html" target="_blank">Part. 1: 드롭다운 클릭 시 서브메뉴 구현</a>
-        </div>
-        <div class="gnb-menu">
-            <a href="./html/part1-ver1.html" target="_blank">응용 Part. 1: 배운 코드로 구현해보기</a>
-        </div>
-        <div class="click-img">
-            <a href="./html/02-click-image01.html" target="_blank">Part. 2: 클릭하면 콘텐츠에 나타나도록 만들어보기</a>
-        </div>
-        <div class="click-img">
-            <a href="./html/03-click-image01-upgrade.html" target="_blank">Part. 3: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드)</a>
-        </div>
-        <div class="click-img">
-            <a href="./html/04-click-image01-upgrade02.html" target="_blank">Part. 4: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드 02)</a>
-        </div>
-        <div class="click-img">
-            <a href="./html/05-click-image01-upgrade03.html" target="_blank">Part. 5: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드 03)</a>
-            <span style="display: block; font-size: 14px; color: #757575; padding-left: 56px;">IIFE: 즉시 실행 함수 표현 사용해보기</span>
+        <div class="js-wrap">
+            <h1>바닐라 자바스크립트로 구현 및 공부하기</h1>
+            <div class="item gnb-menu">
+                <a href="./html/01-gnb-menu01.html" target="_blank">Part. 1: 드롭다운 클릭 시 서브메뉴 구현</a>
+            </div>
+            <div class="gnb-menu">
+                <a href="./html/01-gnb-menu01.html" target="_blank">복습 Part. 1: 배운 것을 다시 익혀 구현해보기</a>
+            </div>
+            <div class="gnb-menu">
+                <a href="./html/part1-ver1.html" target="_blank">응용 Part. 1: 배운 코드로 구현해보기</a>
+            </div>
+            <div class="item click-img">
+                <a href="./html/02-click-image01.html" target="_blank">Part. 2: 클릭하면 콘텐츠에 나타나도록 만들어보기</a>
+            </div>
+            <div class="item click-img">
+                <a href="./html/03-click-image01-upgrade.html" target="_blank">Part. 3: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드)</a>
+            </div>
+            <div class="item click-img">
+                <a href="./html/04-click-image01-upgrade02.html" target="_blank">Part. 4: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드 02)</a>
+            </div>
+            <div class="item click-img">
+                <a href="./html/05-click-image01-upgrade03.html" target="_blank">Part. 5: 클릭하면 콘텐츠에 나타나도록 만들어보기 (업그레이드 03)</a>
+                <span style="display: block; font-size: 14px; color: #757575; padding-left: 56px;">IIFE: 즉시 실행 함수 표현 사용해보기</span>
+            </div>
         </div>
     </div>
 </body>
