@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part. 1: 복습 ver1</title>
+    <style>
+        * {padding: 0; margin: 0; text-decoration: none; list-style: none; color: #000000; padding: 10px;}
+        body {padding: 20px 50px;}
+        div {border: 1px solid black;}
+        .ul {border: 1px solid lime;}
+        .li {border: 1px solid blue; position: relative;}
+        .li::after {content: ''; display: block; clear: both;}
+        .li > a {border: 1px solid red; display: block; float: left;}
+        .sub {display: none; background-color: black; opacity: 0.3; float: left; margin-left: 20px; position: absolute; top: 1px; left: 50px;}
+        .on .sub {display: block;}
+        .sub-item {background-color: lime;}
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="ul">
+            <li class="li">
+                <a href="">저는</a>
+                <span>메뉴 옆에 콘텐츠가 있어도 안 깨짐</span>
+                <ul class="sub">
+                    <li class="sub-item">
+                        <a href="">사람 냄새나는 좋은 사람입니다.</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="li">
+                <a href="">직업은</a>
+                <ul class="sub">
+                    <li class="sub-item">
+                        <a href="">퍼블리셔 및 프론트엔드</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="li">
+                <a href="">서브메뉴가 없는데 넣으면 작동됩니다.</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const li = document.querySelectorAll('.ul > .li');
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log(e.target.parentNode);
+                if (e.target.parentNode.localName === 'li') {
+                    for (let i = 0; i < li.length; i++) {
+                        li[i].classList.remove('on');
+                    }
+                    li[i].classList.add('on');
+                };
+            });
+        };
+    </script>
+</body>
+</html>
