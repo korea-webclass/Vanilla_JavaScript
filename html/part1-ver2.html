@@ -48,12 +48,14 @@
         for (let i = 0; i < li.length; i++) {
             li[i].addEventListener('click', function (e) {
                 e.preventDefault();
-                console.log(e.target.parentNode);
-                if (e.target.parentNode.localName === 'li') {
+                // console.log(e.target.parentNode);
+                if (e.target.parentNode.className === 'li') {
                     for (let i = 0; i < li.length; i++) {
                         li[i].classList.remove('on');
                     }
                     li[i].classList.add('on');
+                } else {
+                    li[i].classList.remove('on');
                 };
             });
         };
