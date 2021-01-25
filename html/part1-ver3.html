@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part. 1: 응용 ver2</title>
+    <style>
+        * {padding: 0; margin: 0;}
+        li {list-style: none;}
+        a {text-decoration: none; color: #000000;}
+
+        .wrap {}
+        
+        /* 헤더 레이아웃 */
+        .header {min-width: 1400px; position: relative; height: 128px; background-color: #fff;}
+        .header::after {content: ''; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: #999999;}
+        .header-layout {margin: 0 auto; padding: 24px 96px; max-width: 1400px;}
+        .header-wrap {}
+        .header-wrap::after {content: ''; display: block; clear: both;}
+
+        /* 로고 */
+        .header-wrap .logo {float: left; width: 40px; margin-top: 20px;}
+        .header-wrap .logo a {}
+        .header-wrap .logo a img {width: 100%; vertical-align: top;}
+
+        /* gnb 메뉴 */
+        .header-wrap .gnb {float: left; margin-left: 300px;}
+        .header-wrap .gnb .menu {}
+        .header-wrap .gnb .menu::after {content: ''; display: block; clear: both;}
+        .header-wrap .gnb .menu .item {float: left;  margin: 0 10px; line-height: 40px;}
+        .header-wrap .gnb .menu .item a {display: block; height: 80px; line-height: 80px; padding: 0 10px;}
+
+        /* gnb 메뉴 mouseover */
+        .header-wrap .gnb .menu .sub-on .sub {top: 128px; visibility: visible; opacity: 1;}
+
+        /* gnb 서브 메뉴 */
+        .header-wrap .gnb .sub {position: absolute; padding: 24px 0; visibility: hidden; opacity: 0; top: 0px; left: 0px; right: 0; z-index: -1; transition: all 0.3s ease; background-color: #777;}
+        .header-wrap .gnb .sub.skill {padding-left: 790px;}
+        .header-wrap .gnb .sub.portfolio {padding-left: 860px;}
+        .header-wrap .gnb .sub::after {content: ''; display: block; clear: both;}
+        .header-wrap .gnb .sub .sub-item {float: left; margin: 0 5px;}
+        .header-wrap .gnb .sub .sub-item a {color: #fff;}
+
+
+        /* 전체 메뉴 */
+        .header-wrap .all-menu {float: right; width: 40px; height: 40px; margin-top: 20px;}
+        .header-wrap .all-menu a {position: relative; display: block; width: 40px; height: 40px; border: 1px solid #000000; box-sizing: border-box;}
+        .header-wrap .all-menu a .line {position: absolute; top: 0; left: 6px; display: block; width: 28px; height: 1px; background-color: #000000;}
+        .header-wrap .all-menu a .line:nth-child(1) {top: 13px;}
+        .header-wrap .all-menu a .line:nth-child(2) {top: 20px;}
+        .header-wrap .all-menu a .line:nth-child(3) {top: 27px;}
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header-layout">
+                <section class="header-wrap">
+                    <h1 class="logo">   
+                        <a href="#">
+                            <img src="../image/logo.png" alt="로고">
+                        </a>
+                    </h1>
+                    <nav class="gnb">
+                        <ul class="menu">
+                            <li class="item">
+                                <a href="#">나의 소개</a>
+                                <ul class="sub skill">
+                                    <li class="sub-item">
+                                        <a href="#">취준생</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="item">
+                                <a href="#">분야</a>
+                                <ul class="sub skill">
+                                    <li class="sub-item">
+                                        <a href="#">웹 표준</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">웹 접근성</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">크로스브라우징</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="item">
+                                <a href="#">역량</a>
+                                <ul class="sub skill">
+                                    <li class="sub-item">
+                                        <a href="#">html</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">css</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">javascript</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="item">
+                                <a href="#">포트폴리오</a>
+                                <ul class="sub portfolio">
+                                    <li class="sub-item">
+                                        <a href="#">PC형</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">모바일형</a>
+                                    </li>
+                                    <li class="sub-item">
+                                        <a href="#">반응형</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="item">
+                                <a href="#">기타</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="all-menu">
+                        <a href="#">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </header>
+    </div>
+    <script>
+        const header = document.querySelectorAll('.header');
+        const aElem = document.querySelectorAll('.header-wrap .gnb > .menu > .item > a');
+
+        for (let i = 0; i < aElem.length; i++) {
+            aElem[i].addEventListener('mouseover', function (e) {
+                let LI = e.target.parentNode;
+                if (LI.nodeName === 'LI') {
+                    for (let i = 0; i < aElem.length; i++) {
+                        aElem[i].parentNode.classList.remove('sub-on');
+                    }
+                    LI.classList.add('sub-on');
+                };
+            });
+        };
+    </script>
+</body>
+</html>
