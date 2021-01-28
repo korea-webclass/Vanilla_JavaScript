@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part. 1: 응용 ver3</title>
+    <style>
+        * {padding: 0; margin: 0;}
+        li {list-style: none;}
+        a {text-decoration: none; color: #000000;}
+
+        .box-wrap > .box {}
+        .box-wrap > .box > li {overflow: hidden; transition: all 0.7s ease; height: 80px; line-height: 80px; background-color: #999999;}
+        .box-wrap > .box > li.on {height: 280px;}
+        .box-wrap .item-link {display: block;  font-size: 40px; text-align: center; color: #ffffff;}
+
+        /* 서브 메뉴 */
+        .box-wrap .box-sub { background-color: #234223}
+        .box-wrap .box-sub > li {height: 200px; line-height: 200px;}
+        .box-wrap .box-sub .sub-item {display: block; font-size: 20px; text-align: center; color: #ffffff;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box-wrap">
+            <ul class="box">
+                <li>
+                    <a href="#" class="item-link">제목</a>
+                    <ul class="box-sub">
+                        <li>
+                            <a href="#" class="sub-item">내용을 입력해주세요.</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const boxLink = document.querySelector('.box-wrap .item-link');
+        
+        boxLink.addEventListener('mouseover', function (e) {
+            let Li = e.target.parentNode;
+            if (Li.className === '') {
+                Li.classList.add('on');
+            }
+        });
+
+
+
+
+        // 마우스 클릭
+        // const boxLink = document.querySelector('.box-wrap .item-link');
+        
+        // boxLink.addEventListener('click', function (e) {
+        //     let Li = e.target.parentNode;
+        //     if (Li.className === '') {
+        //         Li.className = 'on';
+        //     } else {
+        //         Li.className = '';
+        //     }
+        // });
+    </script>
+</body>
+</html>
