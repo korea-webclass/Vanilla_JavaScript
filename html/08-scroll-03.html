@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 공부하기 8일차</title>
+    <style>
+        * {margin:0; padding:0;}
+        .notice {height: 30px; background-color: gray;}
+        header {height: 60px; position: absolute; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.8); color: #ffffff;}
+        header.on {position: fixed; top: 0;}
+        section {min-height: 100vh;}
+        section.num1 {background-color: lime; margin-top: 60px;}
+        section.num2 {background-color: yellow;}
+        section.num3 {background-color: pink;}
+        section.num4 {background-color: blue;}
+        .obj1 {
+            width: 200px; 
+            height: 200px; 
+            background-color: teal; 
+            transform: translate(-200px, 0); 
+            transition: all 2s ease;
+        }
+        .obj1.on {
+            transform: translate(800px, 0) rotate(200deg); 
+        }
+        .obj2 {
+            width: 200px; 
+            height: 200px; 
+            background-color: green; 
+            transform: translate(-200px, 0); 
+            /* transition: all 2s ease;  */
+            transition: all 2s ease 0.5s; 
+        }
+        .obj2.on {
+            transform: rotateX(360deg) translate(500px, 0); 
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">광고</div>
+    <header>헤더</header>
+    <section class="num1"></section>
+    <section class="num2">
+        <div class="obj1"></div>
+        <div class="obj2"></div>
+    </section>
+    <section class="num3"></section>
+    <section class="num4"></section>
+    <script>
+        const htmlElem = document.querySelector('html');
+        const header = htmlElem.querySelector('header');
+        const obj1 = document.querySelector('.obj1');
+        const obj2 = document.querySelector('.obj2');
+
+        window.addEventListener('scroll', start);
+        // header.addEventListener('click', function() {
+        //     clearTimeout(end);
+        // });
+
+        var end;
+        function start() {
+            clearTimeout(end);
+            end = setTimeout(scrollWork, 150);
+        };
+
+        function scrollWork() {
+            let currPos = htmlElem.scrollTop;
+            if (currPos > 30 && currPos < 60) {
+                header.className = 'on';
+            } else if (currPos < 30) {
+                header.className = '';
+            } else if (currPos > 550) {
+                obj1.className = 'obj1 on';
+                obj2.className = 'obj2 on';
+            }
+            console.log(currPos);
+        };
+    </script>
+</body>
+</html>
