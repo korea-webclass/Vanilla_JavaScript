@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 공부하기 9일차</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .eulsoo {
+            width: 100%;
+        }
+
+        .eulsoo > li > div {
+            /* width: ; */
+            height: 300px;
+            border: 2px solid black;
+        }
+
+        header {height: 60px; background-color: gray;}
+        header.black {color: white;}
+        header.white {color: black;}
+    </style>
+    <script>
+        window.addEventListener('load', work);
+
+        function work() {
+            var x = $('.eulsoo').bxSlider();
+            const liElems = document.querySelectorAll('.eulsoo > li');
+            const header = document.querySelector('header');
+
+            window.addEventListener('resize', resizeWork);
+            resizeWork();
+            
+            function resizeWork() {
+                console.log(window.innerWidth);
+
+                if (window.innerWidth > 420 && window.innerWidth < 800) {
+                    console.log('아이패드')
+                    x.reloadSlider({
+                        minSlides: 3,
+                        maxSlides: 3,
+                        slideWidth: 300,
+                        slideMargin: 10
+                    });
+                } else if (window.innerWidth > 799) {
+                    console.log('데스크탑')
+                    x.reloadSlider({
+                        mode: 'horizontal',
+                        onSlideBefore: function() {
+                            let num = this.getCurrentSlide();
+                            console.log(num);
+                            setColor(num);
+                        },
+                        onSliderLoad: function() {
+                            let num = this.getCurrentSlide();
+                            console.log(num);
+                            setColor(num);
+                        },
+                    });
+                };
+            };
+
+            function setColor(num) {
+                // console.log(colorName);
+                if (liElems[num].classList.contains('black')) {
+                    header.className = 'black';
+                } else {
+                    header.className = 'white';
+                }
+            };
+
+
+            
+            // let 부모 = document.querySelector('.eulsoo');
+            // let 자식 = document.querySelector('.prev');
+
+            // let 자식맞니 = test(자식);
+            // function test(target) {
+            //     while (target.tagName !== 'HTML') {
+            //         if (target.className === 'eulsoo') {
+            //             return true;
+            //         } else {
+            //             target = target.parentNode;
+            //             console.log(target.tagName);
+            //         };
+            //     };
+            //     return false
+            // };
+            // console.log(자식맞니);
+
+            const 조상 = document.querySelector('.eulsoo');
+            const 자손 = document.querySelector('.eulsoo div');
+            
+            var target = 자손;
+            var 결과 = isSon();
+            function isSon() {
+                while(target.tagName !== 'HTML') {
+                    if (target.className === 'eulsoo') {
+                        return true;
+                    } else {
+                        target = target.parentNode;
+                    }
+                };
+                return false;
+            };
+            console.log(결과);
+        };
+    </script>
+</head>
+<body>
+    <header>헤더</header>
+    <ul class="eulsoo">
+        <li class="black"><div>A</div></li>
+        <li class="black"><div>B</div></li>
+        <li class="black"><div>C</div></li>
+        <li class="white"><div>D</div></li>
+        <li class="black"><div>E</div></li>
+        <li class="white"><div>F</div></li>
+        <li class="black"><div>G</div></li>
+        <li class="white"><div>H</div></li>
+    </ul>
+    <div href="" class="prev">이전</div>
+    <div href="" class="next">다음</div>
+
+    <script>
+
+    </script>
+</body>
+</html>
