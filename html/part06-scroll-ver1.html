@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part. 6: 응용 ver1</title>
+    <style>
+        * {padding: 0; margin: 0;} ul, li {list-style: none;} a {text-decoration: none; color: #000;}
+        
+        .header {transition: all 0.3s ease; background-color: transparent; position: absolute; left: 0; right: 0; width: 1080px; margin: 0 auto;}
+        .header::after {content: ''; display: block; clear: both;}
+        .header .logo {float: left; background-image: url('../image/logo.png'); background-size: 100%; width: 50px; height: 50px;}
+        .header .gnb {float: right;}
+        .header .gnb ul {}
+        .header .gnb ul::after {content: ''; display: block; clear: both;}
+        .header .gnb li {float: left; margin: 0 10px; line-height: 50px;}
+        .header .gnb a {color: #fff;}
+
+        /* 스크롤 활성화 */
+        .on {position: fixed; background-color: #fff; left: 0; right: 0; width: 100%; margin: 0 auto;}
+        .on::after {content: ''; display: block; clear: both;}
+        .on .logo {float: left; filter: invert(100%); background-image: url('../image/logo.png'); background-size: 100%; width: 50px; height: 50px;}
+        .on .gnb {float: right;}
+        .on .gnb ul {}
+        .on .gnb ul::after {content: ''; display: block; clear: both;}
+        .on .gnb li {float: left; margin: 0 10px; line-height: 50px;}
+        .on .gnb a {color: #000;}
+        img {width: 100%; vertical-align: top; background-color: #000;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1 class="logo"></h1>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </nav>
+        </header>
+        <img src="../image/pc-ver.jpg" alt="">
+    </div>
+    <script>
+        const html = document.querySelector('html');
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', scroll);
+
+        function scroll() {
+            if (html.scrollTop > 0) {
+                header.classList.add('on');
+            } else {
+                header.classList.remove('on');
+            }
+            // console.log(html.scrollTop);
+        }
+    </script>
+</body>
+</html>
